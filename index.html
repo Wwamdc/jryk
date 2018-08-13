@@ -11,41 +11,16 @@
 	<div class="viewport">
 		<!-- 侧边导航 -->
 		<div ng-class="{navs:true,collapse:head}">
-			<dl>
+			<dl ng-controller="navs">
 				<dt class="login">
 					<div class="avatar">
 						<img src="./public/img/avatar.png" alt="">
 					</div>
 					<span>登录</span>
 				</dt>
-				<dd class="active">
-					<a href="./index.html" class="icon-home">
-						<span>今日一刻</span>
-					</a>
-				</dd>
-				<dd>
-					<a href="./older.html" class="icon-file-empty">
-						<span>往期内容</span>
-					</a>
-				</dd>
-				<dd>
-					<a href="./author.html" class="icon-pencil">
-						<span>热门作者</span>
-					</a>
-				</dd>
-				<dd>
-					<a href="./category.html" class="icon-menu">
-						<span>栏目浏览</span>
-					</a>
-				</dd>
-				<dd>
-					<a href="./favourite.html" class="icon-heart">
-						<span>我的喜欢</span>
-					</a>
-				</dd>
-				<dd>
-					<a href="./settings.html" class="icon-cog">
-						<span>设置</span>
+				<dd ng-class="{active:$index==num}" ng-repeat="a in navs">
+					<a href="{{a.link}}" class="{{a.icon}}" ng-click="toggle()">
+						<span>{{a.text}}</span>
 					</a>
 				</dd>
 			</dl>
@@ -68,87 +43,7 @@
 					<div class="mark">13Aug</div>
 					<ul class="posts large">
 						<!-- 文章 -->
-						<li>
-							<span href="javascript:;" class="tag">去远方</span>
-							<div class="cont">
-								<h3>朝圣山南扎央宗--探索藏文化之源探索藏文化之源</h3>
-								<div class="brief">
-									<p class="only">那里有个很窄的洞，钻进去曾是莲花生大师修行的地方，在藏民心中钻洞是为了洗清那里有个很窄的洞，钻进去曾是莲花生大师修行的地方，在藏民心中钻洞是为了洗清中钻洞是为了洗清那里有个很窄的洞，钻进去曾是莲花生大师修行的地方</p>
-								</div>							
-							</div>
-						</li>
-						<li>
-							<span href="javascript:;" class="tag">去远方</span>
-							<div class="cont">
-								<h3>朝圣山南扎央宗--探索藏文化之源探索藏文化之源探索藏文化之源</h3>
-								<div class="brief">
-									<p>那里有个很窄的洞，钻进去曾是莲花生大师修行的地方，在藏民心中钻洞是为了洗清</p>
-									<div class="thumb">
-										<img src="./uploads/post_1.png" alt="">
-									</div>
-								</div>							
-							</div>
-						</li>
-						<li>
-							<span href="javascript:;" class="tag">去远方</span>
-							<div class="cont">
-								<h3>朝圣山南扎央宗--探索藏文化之源</h3>
-								<div class="brief">
-									
-									<div class="gallery">
-										<img src="./uploads/post_2.png" alt="">
-									</div>
-								</div>							
-							</div>
-						</li>
-						<li>
-							<span href="javascript:;" class="tag">去远方</span>
-							<div class="cont">
-								<h3>朝圣山南扎央宗--探索藏文化之源探索藏文化之源探索藏文化之源</h3>
-								<div class="brief">
-									<p>那里有个很窄的洞，钻进去曾是莲花生大师修行的地方，在藏民心中钻洞是为了洗清</p>
-									<div class="thumb">
-										<img src="./uploads/post_1.png" alt="">
-									</div>
-								</div>							
-							</div>
-						</li>
-						<li>
-							<span href="javascript:;" class="tag">去远方</span>
-							<div class="cont">
-								<h3>朝圣山南扎央宗--探索藏文化之源探索藏文化之源探索藏文化之源</h3>
-								<div class="brief">
-									<p>那里有个很窄的洞，钻进去曾是莲花生大师修行的地方，在藏民心中钻洞是为了洗清</p>
-									<div class="thumb">
-										<img src="./uploads/post_1.png" alt="">
-									</div>
-								</div>							
-							</div>
-						</li>
-						<li>
-							<span href="javascript:;" class="tag">去远方</span>
-							<div class="cont">
-								<h3>朝圣山南扎央宗--探索藏文化之源探索藏文化之源探索藏文化之源</h3>
-								<div class="brief">
-									<p>那里有个很窄的洞，钻进去曾是莲花生大师修行的地方，在藏民心中钻洞是为了洗清</p>
-									<div class="thumb">
-										<img src="./uploads/post_1.png" alt="">
-									</div>
-								</div>							
-							</div>
-						</li>
-						<li>
-							<span href="javascript:;" class="tag">去远方</span>
-							<div class="cont">
-								<h3>朝圣山南扎央宗--探索藏文化之源探索藏文化之源探索藏文化之源</h3>
-								<div class="brief">
-									<p>那里有个很窄的洞，钻进去曾是莲花生大师修行的地方，在藏民心中钻洞是为了洗清</p>
-									<div class="thumb">
-										<img src="./uploads/post_1.png" alt="">
-									</div>
-								</div>							
-							</div>
-						</li>
+						<li ng-view></li>
 					</ul>
 				</div>
 			</div>
@@ -158,5 +53,6 @@
 	<script src="bower_components/angular/angular.min.js"></script>
 	<script src="bower_components/angular-route/angular-route.min.js"></script>
 	<script  src="scrippt/app.js"></script>
+	<script src="scrippt/controllers.js"> </script>
 </body>
 </html>
