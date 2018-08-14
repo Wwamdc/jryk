@@ -31,21 +31,18 @@
 		</div>
 		<div class="container">
 			<!-- 头部 -->
-			<div ng-class="{header:true,collapse:head}">
+			<div ng-class="{header:true,collapse:head}" ng-controller="navs">
 				<a href="javascript:;" class="menu icon-menu" ng-click="toggle()"></a>
-				<h2>今日一刻</h2>
+				<h2>{{title}}</h2>
 				<a href="javascript:;" class="search icon-search"></a>
 			</div>
 			<!-- 主体 -->
 			<div ng-class="{body:true,collapse:head}">
-				<div class="item">
-					<!-- 日期分类 -->
-					<div class="mark">13Aug</div>
-					<ul class="posts large">
-						<!-- 文章 -->
-						<li ng-view></li>
-					</ul>
+				<div ng-show="show">
+					<!-- 动态加载图,获取数据时显示 -->
+					<img src="public/img/timg.gif">
 				</div>
+				<div ng-view></div>
 			</div>
 		</div>
 	</div>

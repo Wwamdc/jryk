@@ -21,7 +21,7 @@ yike.run(["$rootScope",function($rootScope){
         //对导航栏所有的dd的移动进行设置
         //获取所有的dd
         var dd = document.querySelectorAll('dd');
-        console.log(dd);
+        // console.log(dd);
         //遍历dd,将每个dd设置移动
         //当$cootScope.head的值为true时,向右移动,false时,不移动
         if($rootScope.head){//导航栏向右显示(位移量0)
@@ -42,6 +42,7 @@ yike.run(["$rootScope",function($rootScope){
             }
         }
     }
+
 }]);
 //修复锚点值的改变
 yike.config(["$locationProvider",function($locationProvider){
@@ -52,22 +53,22 @@ yike.config(["$routeProvider",function($routeProvider){
     $routeProvider.when("/",{
         redirectTo:"/index"//跳转到index处理
     }).when("/index",{
-        templateUrl:"./views/test.html", //将要在ng-view区域显示的视图
+        templateUrl:"./views/list.html", //将要在ng-view区域显示的视图
         controller:"index" //调用index控制器
     }).when("/older",{
-        templateUrl:"./views/test.html", //将要在ng-view区域显示的视图
+        templateUrl:"./views/list.html", //将要在ng-view区域显示的视图
         controller:"older" //调用older控制器
     }).when("/author",{
-        templateUrl:"./views/test.html", //将要在ng-view区域显示的视图
+        templateUrl:"./views/author.html", //将要在ng-view区域显示的视图
         controller:"author" //调用author控制器
     }).when("/category",{
-        templateUrl:"./views/test.html", //将要在ng-view区域显示的视图
+        templateUrl:"./views/category.html", //将要在ng-view区域显示的视图
         controller:"category" //调用category控制器
     }).when("/favourite",{
-        templateUrl:"./views/test.html", //将要在ng-view区域显示的视图
+        templateUrl:"./views/favourite.html", //将要在ng-view区域显示的视图
         controller:"favourite" //调用favourite控制器
     }).when("/settings",{
-        templateUrl:"./views/test.html", //将要在ng-view区域显示的视图
+        templateUrl:"./views/settings.html", //将要在ng-view区域显示的视图
         controller:"settings" //调用settings控制器
     })
 }])
